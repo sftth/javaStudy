@@ -18,26 +18,34 @@ public class MacAddress {
 	
 	public static boolean checkTypeA(String inputMac) {
 		boolean result = false;
-		String[] dash = {
-				inputMac.substring(2, 3),
-				inputMac.substring(5, 6),
-				inputMac.substring(8, 9),
-				inputMac.substring(11, 12),
-				inputMac.substring(14, 15)
-				};
-		for(String d : dash) {
-			if("-".equals(d)) {
-				result = true;
-			} else {
-				result = false;
-			}
-		}
-		
-		if(inputMac != null) {
-			result = Pattern.matches(inputMac,"[a-fA-F0-9]");
-		}
+
+		result = Pattern.matches("^[\\-a-fA-F0-9]*$",inputMac);
+
 		return result;
 	}
+	
+//	public static boolean checkTypeA(String inputMac) {
+//		boolean result = false;
+//		String[] dash = {
+//				inputMac.substring(2, 3),
+//				inputMac.substring(5, 6),
+//				inputMac.substring(8, 9),
+//				inputMac.substring(11, 12),
+//				inputMac.substring(14, 15)
+//				};
+//		for(String d : dash) {
+//			if("-".equals(d)) {
+//				result = true;
+//			} else {
+//				result = false;
+//			}
+//		}
+//		
+//		if(inputMac != null) {
+//			result = Pattern.matches(inputMac,"[a-fA-F0-9]");
+//		}
+//		return result;
+//	}
 	
 	public static String convTypeA(String inputMac) {
 		StringBuilder builder = new StringBuilder();
